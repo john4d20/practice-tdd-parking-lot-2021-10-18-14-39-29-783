@@ -24,9 +24,13 @@ public class test {
         ParkingLot parkingLot = new ParkingLot(0);
         Car car = new Car();
 
-        Ticket ticket = parkingLot.park(car);
 
-        assertNull(ticket);
+
+//        assertNull(ticket);
+        NoAvailablePosition noAvailablePosition = assertThrows(NoAvailablePosition.class,() -> {
+            parkingLot.park(car);
+        });
+        assertEquals("No available position", noAvailablePosition.getMessage());
     }
 
     @Test

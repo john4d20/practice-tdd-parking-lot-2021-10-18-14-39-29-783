@@ -21,7 +21,11 @@ public class ParkingLot {
 
             return ticket;
         }
-         return null;
+//         return null;
+        throw new NoAvailablePosition("No available position");
+    }
+
+    private void assertNull() {
     }
 
     private boolean hasAvailablePosition(){
