@@ -72,22 +72,22 @@ public class test {
         assertEquals("Unrecognized parking ticket",unrecognizedParkingTicketException.getMessage());
     }
 
-//    @Test
-//    void should_return_null_when_fetch_car_given_used_ticket() {
-//
-//        ParkingLot parkingLot = new ParkingLot();
-//        Car car = new Car();
-//        Ticket ticket = parkingLot.park(car);
-//        parkingLot.fetch(ticket);
-//        Ticket usedTicket = ticket;
-//
-//
-////        assertNull(Car);
-//        UnrecognizedParkingTicketException unrecognizedParkingTicketException = assertThrows(UnrecognizedParkingTicketException.class, () ->{
-//            parkingLot.fetch(ticket);
-//        });
-//        assertEquals("Unrecognized parking ticket",unrecognizedParkingTicketException.getMessage());
-//    }
+    @Test
+    void should_return_null_when_fetch_car_given_used_ticket() {
+
+        ParkingLot parkingLot = new ParkingLot();
+        Car car = new Car();
+        Ticket ticket = parkingLot.park(car);
+        parkingLot.fetch(ticket);
+        Ticket usedTicket = ticket;
+
+
+//        assertNull(Car);
+        UnrecognizedParkingTicketException unrecognizedParkingTicketException = assertThrows(UnrecognizedParkingTicketException.class, () ->{
+            parkingLot.fetch(ticket);
+        });
+        assertEquals("Unrecognized parking ticket",unrecognizedParkingTicketException.getMessage());
+    }
 
 
 
