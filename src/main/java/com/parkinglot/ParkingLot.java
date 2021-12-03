@@ -3,7 +3,7 @@ package com.parkinglot;
 import java.util.HashMap;
 
 public class ParkingLot {
-    int capacity;
+    private int capacity;
     private final int DEFAULT_CAPACITY = 10;
     HashMap<Ticket,Car> ticketCarHashMap = new HashMap<>();
     public ParkingLot(int capacity) {
@@ -21,7 +21,7 @@ public class ParkingLot {
 
             return ticket;
         }
-     return null;
+         return null;
     }
 
     private boolean hasAvailablePosition(){
@@ -30,9 +30,8 @@ public class ParkingLot {
 
     public Car fetch(Ticket ticket) {
         if (ticketCarHashMap.containsKey(ticket)){
-            Car car = ticketCarHashMap.get(ticket);
-            ticketCarHashMap.remove(ticket);
-            return car;
+            return ticketCarHashMap.remove(ticket);
+
         }
         return null;
     }
