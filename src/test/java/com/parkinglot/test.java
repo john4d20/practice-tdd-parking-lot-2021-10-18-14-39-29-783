@@ -22,7 +22,7 @@ public class test {
     @Test
     void should_return_null_when_park_car_given_full_parking_lot_and_car() {
         //given
-        ParkingLot parkingLot = new ParkingLot(1);
+        ParkingLot parkingLot = new ParkingLot(0);
         Car car = new Car();
         //when
         Ticket ticket = parkingLot.park(car);
