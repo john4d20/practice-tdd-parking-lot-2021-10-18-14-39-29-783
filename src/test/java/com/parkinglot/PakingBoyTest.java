@@ -26,4 +26,22 @@ public class PakingBoyTest {
         assertEquals(10,secondParkingLot.getAvailablePosition());
     }
 
+    @Test
+    void should_park_to_second_parking_lot_when_park_car_given_full_first_parking_lot_and_second_parking_lot() {
+        //given
+        ParkingLot firstParkingLot = new ParkingLot(0);
+        ParkingLot secondParkingLot = new ParkingLot();
+        ArrayList<ParkingLot> parkingLots = new ArrayList<>();
+        parkingLots.add(firstParkingLot);
+        parkingLots.add(secondParkingLot);
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
+
+        //when
+        Ticket ticket = parkingBoy.park(new Car());
+        //then
+        assertNotNull(ticket);
+        assertEquals(0,firstParkingLot.getAvailablePosition());
+        assertEquals(9,secondParkingLot.getAvailablePosition());
+    }
+
 }
