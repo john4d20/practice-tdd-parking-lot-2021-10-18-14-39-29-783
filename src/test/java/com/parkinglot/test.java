@@ -70,15 +70,20 @@ public class test {
         //then
         assertNull(fetchedCar);
     }
-////    case6
-//    @Test
-//    void should_return_null_when_fetch_car_given_used_ticket() {
-//        //given
-//
-//        //when
-//
-//        //then
-//    }
+//    case6
+    @Test
+    void should_return_null_when_fetch_car_given_used_ticket() {
+        //given
+        ParkingLot parkingLot = new ParkingLot();
+        Car car = new Car();
+        Ticket ticket = parkingLot.park(car);
+        Car fetchedCar = parkingLot.fetch(ticket);
+        Ticket usedTicket = ticket;
+        //when
+        Car Car = parkingLot.fetch(usedTicket);
+        //then
+        assertNull(Car);
+    }
 
 
 
