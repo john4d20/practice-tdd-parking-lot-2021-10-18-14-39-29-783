@@ -21,12 +21,9 @@ public class ParkingLot {
 
             return ticket;
         }
-//         return null;
-        throw new NoAvailablePosition("No available position");
+        throw new NoAvailablePositionException("No available position");
     }
 
-    private void assertNull() {
-    }
 
     private boolean hasAvailablePosition(){
         return ticketCarHashMap.size() < capacity;
@@ -37,6 +34,6 @@ public class ParkingLot {
             return ticketCarHashMap.remove(ticket);
 
         }
-        return null;
+        throw new UnrecognizedParkingTicketException("Unrecognized parking ticket");
     }
 }
