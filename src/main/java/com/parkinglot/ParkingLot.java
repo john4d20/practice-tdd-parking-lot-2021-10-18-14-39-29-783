@@ -14,6 +14,9 @@ public class ParkingLot {
         this.capacity = DEFAULT_CAPACITY;
     }
 
+    public ParkingLot(Car car) {
+    }
+
     public Ticket park(Car car){
         if (hasAvailablePosition()){
             Ticket ticket = new Ticket();
@@ -26,5 +29,12 @@ public class ParkingLot {
 
     private boolean hasAvailablePosition(){
         return ticketCarHashMap.size() < capacity;
+    }
+
+    public Car fetch(Ticket ticket) {
+//        if (ticketCarHashMap.containsKey(ticket)){
+//            return ticketCarHashMap.get(ticket);
+//        }
+        return null;
     }
 }
