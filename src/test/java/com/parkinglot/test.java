@@ -53,10 +53,36 @@ public class test {
         Car fetchedCar = parkingLot.fetch(ticket);
         Car fetchedCar2 = parkingLot.fetch(ticket2);
         //then
-        assertEquals(car,fetchedCar);
-        assertEquals(car2,fetchedCar2);
-
+        assertEquals(car, fetchedCar);
+        assertEquals(car2, fetchedCar2);
     }
+//        case5
+    @Test
+    void should_return_null_when_fetch_car_given_wrong_ticket() {
+        //given
+        ParkingLot parkingLot = new ParkingLot();
+        Car car = new Car();
+        Ticket ticket = parkingLot.park(car);
+        Ticket wrongTicket = new Ticket();
+        //when
+        Car fetchedCar = parkingLot.fetch(wrongTicket);
+
+        //then
+        assertNull(fetchedCar);
+    }
+////    case6
+//    @Test
+//    void should_return_null_when_fetch_car_given_used_ticket() {
+//        //given
+//
+//        //when
+//
+//        //then
+//    }
+
 
 
 }
+
+
+
