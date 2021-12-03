@@ -14,9 +14,6 @@ public class ParkingLot {
         this.capacity = DEFAULT_CAPACITY;
     }
 
-    public ParkingLot(Car car) {
-    }
-
     public Ticket park(Car car){
         if (hasAvailablePosition()){
             Ticket ticket = new Ticket();
@@ -33,7 +30,9 @@ public class ParkingLot {
 
     public Car fetch(Ticket ticket) {
         if (ticketCarHashMap.containsKey(ticket)){
-            return ticketCarHashMap.get(ticket);
+            Car car = ticketCarHashMap.get(ticket);
+            ticketCarHashMap.remove(ticket);
+            return car;
         }
         return null;
     }
