@@ -5,6 +5,8 @@ import java.util.HashMap;
 public class ParkingLot {
     private int capacity;
     private final int DEFAULT_CAPACITY = 10;
+    private final String NO_AVAILABLE_POSITION = "No available position";
+    private final String UNRECOGNIZED_PARKING_TICKET = "Unrecognized parking ticket";
     HashMap<Ticket,Car> ticketCarHashMap = new HashMap<>();
     public ParkingLot(int capacity) {
         this.capacity = capacity;
@@ -21,7 +23,7 @@ public class ParkingLot {
 
             return ticket;
         }
-        throw new NoAvailablePositionException("No available position");
+        throw new NoAvailablePositionException(NO_AVAILABLE_POSITION);
     }
 
 
@@ -34,6 +36,6 @@ public class ParkingLot {
             return ticketCarHashMap.remove(ticket);
 
         }
-        throw new UnrecognizedParkingTicketException("Unrecognized parking ticket");
+        throw new UnrecognizedParkingTicketException(UNRECOGNIZED_PARKING_TICKET);
     }
 }

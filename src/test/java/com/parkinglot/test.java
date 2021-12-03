@@ -82,7 +82,6 @@ public class test {
         Ticket usedTicket = ticket;
 
 
-//        assertNull(Car);
         UnrecognizedParkingTicketException unrecognizedParkingTicketException = assertThrows(UnrecognizedParkingTicketException.class, () ->{
             parkingLot.fetch(ticket);
         });
