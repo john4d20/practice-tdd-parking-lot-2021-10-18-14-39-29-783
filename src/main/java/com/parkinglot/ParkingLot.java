@@ -32,9 +32,9 @@ public class ParkingLot {
     }
 
     public Car fetch(Ticket ticket) {
-//        if (ticketCarHashMap.containsKey(ticket)){
-//            return ticketCarHashMap.get(ticket);
-//        }
+        if (ticketCarHashMap.containsKey(ticket)){
+            return ticketCarHashMap.get(ticket);
+        }
         return null;
     }
 }
