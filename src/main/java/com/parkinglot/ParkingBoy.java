@@ -12,15 +12,16 @@ public class ParkingBoy {
         this.parkingLots = parkingLots;
     }
 
-    public Ticket park(Car car) throws UnrecognizedParkingTicketException{
-        try {return parkingLots.stream()
-                .filter(parkingLot -> parkingLot.getAvailablePosition() > 0)
-                .findFirst()
-                .get().park(car);}
-        catch (UnrecognizedParkingTicketException ignored){
+    public Ticket park(Car car) throws NoAvailablePositionException{
+        for (ParkingLot parkingLot: parkingLots) {
+            try {
+                return parkingLot.park(car);
+            }
+            catch (NoAvailablePositionException ignored) {
 
+            }
         }
-        throw new UnrecognizedParkingTicketException(UNRECOGNIZED_PARKING_TICKET);
+        throw new NoAvailablePositionException(NO_AVAILABLE_POSITION);
 
     }
 
