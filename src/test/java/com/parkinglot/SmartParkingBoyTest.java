@@ -66,6 +66,7 @@ public class SmartParkingBoyTest {
         assertEquals(car2,fectchedCar2);
     }
 
+
     @Test
     void should_return_error_message_when_fetch_car_given_smart_parking_boy_unrecognized_ticket() {
         //given
