@@ -1,6 +1,7 @@
 package com.parkinglot;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class ParkingBoy {
@@ -35,5 +36,10 @@ public class ParkingBoy {
             }
         }
         throw new UnrecognizedParkingTicketException(UNRECOGNIZED_PARKING_TICKET);
+    }
+
+        public List<ParkingLot> getParkingLots() {
+            return this.parkingLots;
+
     }
 }
