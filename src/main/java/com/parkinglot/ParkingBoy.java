@@ -17,4 +17,10 @@ public class ParkingBoy {
                 .get().park(car);
     }
 
+    public Car fetch(Ticket ticket) {
+        for (ParkingLot parkingLot : parkingLots){
+            return parkingLot.fetch(ticket);
+        }
+        return null;
+    }
 }
