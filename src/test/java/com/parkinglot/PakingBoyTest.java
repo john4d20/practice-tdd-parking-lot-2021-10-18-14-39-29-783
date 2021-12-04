@@ -122,7 +122,7 @@ public class PakingBoyTest {
         UnrecognizedParkingTicketException  unrecognizedParkingTicketException = assertThrows(UnrecognizedParkingTicketException.class, () ->{
             parkingBoy.park(car);
         });
-        assertEquals("Unrecognized parking ticket",unrecognizedParkingTicketException.getMessage());
+        assertEquals("No available position",unrecognizedParkingTicketException.getMessage());
     }
 
 }
