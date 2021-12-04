@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class PakingBoyTest {
+public class ParkingBoyTest {
     @Test
     void should_park_to_first_parking_lot_when_park_car_given_parking_boy_manage_two_parking_lots_bot_available() {
         //given
