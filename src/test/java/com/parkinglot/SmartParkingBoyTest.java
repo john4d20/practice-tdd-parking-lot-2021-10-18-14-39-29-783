@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class SmartParkingBoyTest {
+//    TODO used fetch to prove
     @Test
     void should_park_to_first_parking_lot_when_park_car_given_smart_parking_boy_manage_two_parking_lots_both_available() {
         //given
@@ -57,13 +58,13 @@ public class SmartParkingBoyTest {
         Ticket ticket = smartParkingBoy.park(car1);
         Ticket ticket2 = smartParkingBoy.park(car2);
         //when
-        Car fectchedCar = smartParkingBoy.fetch(ticket);
-        Car fectchedCar2 = smartParkingBoy.fetch(ticket2);
+        Car fetchedCar = smartParkingBoy.fetch(ticket);
+        Car fetchedCar2 = smartParkingBoy.fetch(ticket2);
 
         //then
 
-        assertEquals(car1,fectchedCar);
-        assertEquals(car2,fectchedCar2);
+        assertEquals(car1,fetchedCar);
+        assertEquals(car2,fetchedCar2);
     }
 
 
@@ -110,18 +111,20 @@ public class SmartParkingBoyTest {
     @Test
     void should_return_no_available_message_when_park_car_given_smart_boy_and_full_parking_lots() {
         //given
-        ParkingLot firstParkingLot = new ParkingLot(0);
-        ParkingLot secondParkingLot = new ParkingLot(0);
+        ParkingLot firstParkingLot = new ParkingLot(1);
+        ParkingLot secondParkingLot = new ParkingLot(1);
         ArrayList<ParkingLot> parkingLots = new ArrayList<>();
         parkingLots.add(firstParkingLot);
         parkingLots.add(secondParkingLot);
         SmartParkingBoy smartParkingBoy = new SmartParkingBoy(parkingLots);
-        Car car = new Car();
+        smartParkingBoy.park(new Car());
+        smartParkingBoy.park(new Car());
+
 
 
 
         NoAvailablePositionException noAvailablePosition = assertThrows(NoAvailablePositionException.class,() -> {
-            smartParkingBoy.park(car);
+            smartParkingBoy.park(new Car());
         });
         assertEquals("No available position", noAvailablePosition.getMessage());
     }

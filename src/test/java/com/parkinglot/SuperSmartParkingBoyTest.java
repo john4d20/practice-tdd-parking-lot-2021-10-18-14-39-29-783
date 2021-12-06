@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class SuperSmartboyparkingBoyTest {
+public class SuperSmartParkingBoyTest {
     @Test
     void should_park_to_first_parking_lot_when_park_car_given_super_smart_parking_boy_manage_two_parking_lots_both_available() {
         //given
@@ -58,13 +58,13 @@ public class SuperSmartboyparkingBoyTest {
         Ticket ticket = superSmartParkingBoy.park(car1);
         Ticket ticket2 = superSmartParkingBoy.park(car2);
         //when
-        Car fectchedCar = superSmartParkingBoy.fetch(ticket);
-        Car fectchedCar2 = superSmartParkingBoy.fetch(ticket2);
+        Car fetchedCar = superSmartParkingBoy.fetch(ticket);
+        Car fetchedCar2 = superSmartParkingBoy.fetch(ticket2);
 
         //then
 
-        assertEquals(car1,fectchedCar);
-        assertEquals(car2,fectchedCar2);
+        assertEquals(car1,fetchedCar);
+        assertEquals(car2,fetchedCar2);
     }
 
     @Test
@@ -110,13 +110,15 @@ public class SuperSmartboyparkingBoyTest {
     @Test
     void should_return_no_available_message_when_park_car_given_super_smart_boy_and_full_parking_lots() {
         //given
-        ParkingLot firstParkingLot = new ParkingLot(0);
-        ParkingLot secondParkingLot = new ParkingLot(0);
+        ParkingLot firstParkingLot = new ParkingLot(1);
+        ParkingLot secondParkingLot = new ParkingLot(1);
         ArrayList<ParkingLot> parkingLots = new ArrayList<>();
         parkingLots.add(firstParkingLot);
         parkingLots.add(secondParkingLot);
         SuperSmartParkingBoy superSmartParkingBoy = new SuperSmartParkingBoy(parkingLots);
-
+        superSmartParkingBoy.park(new Car());
+        superSmartParkingBoy.park(new Car());
+        
 
         NoAvailablePositionException notEnoughPosition =
                 assertThrows(NoAvailablePositionException.class,() -> superSmartParkingBoy.park(new Car()));

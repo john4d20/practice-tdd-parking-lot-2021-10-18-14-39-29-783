@@ -83,7 +83,7 @@ public class test {
 
 
         UnrecognizedParkingTicketException unrecognizedParkingTicketException = assertThrows(UnrecognizedParkingTicketException.class, () ->{
-            parkingLot.fetch(ticket);
+            parkingLot.fetch(usedTicket);
         });
         assertEquals("Unrecognized parking ticket",unrecognizedParkingTicketException.getMessage());
     }

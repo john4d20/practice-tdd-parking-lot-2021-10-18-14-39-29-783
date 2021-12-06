@@ -44,9 +44,9 @@ public class ParkingBoyTest {
     }
 
     @Test
-    void should_return_right_car_when_fetch_car_given_two_parked_car() {
+    void should_return_right_car_when_fetch_car_given_two_parking_lots_with_parked_car() {
         //given
-        ParkingLot firstParkingLot = new ParkingLot();
+        ParkingLot firstParkingLot = new ParkingLot(1);
         ParkingLot secondParkingLot = new ParkingLot();
         ArrayList<ParkingLot> parkingLots = new ArrayList<>();
         parkingLots.add(firstParkingLot);
@@ -57,13 +57,13 @@ public class ParkingBoyTest {
         Ticket ticket = parkingBoy.park(car1);
         Ticket ticket2 = parkingBoy.park(car2);
         //when
-        Car fectchedCar = parkingBoy.fetch(ticket);
-        Car fectchedCar2 = parkingBoy.fetch(ticket2);
+        Car fetchedCar = parkingBoy.fetch(ticket);
+        Car fetchedCar2 = parkingBoy.fetch(ticket2);
 
         //then
 
-        assertEquals(car1,fectchedCar);
-        assertEquals(car2,fectchedCar2);
+        assertEquals(car1,fetchedCar);
+        assertEquals(car2,fetchedCar2);
     }
 
     @Test
